@@ -11,11 +11,12 @@
 | first_name_kanji   | string  | null: false                |
 | last_name_kana     | string  | null: false                |
 | first_name_kana    | string  | null: false                |
-| birthday           | data    | null: false                |
+| birthday           | date    | null: false                |
 
 
 ### Association
-- has_many :items
+has_many :items
+has_many :purchases
 
 
 ## itemsテーブル
@@ -28,35 +29,37 @@
 | condition_id       | integer    | null: false                    |
 | shipping_fee_id    | integer    | null: false                    |
 | place_id           | integer    | null: false                    |
-| number_of_days_id  | integer    | null: false                    |
+| number_of_day_id   | integer    | null: false                    |
 | price              | integer    | null: false                    |
-| user_id            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :user
-has_one :purchasers
+has_one :purchase
 
 
-##  purchasersテーブル
+##  purchasesテーブル
 | Column             | Type       | Option                         |
 | ------------------ | ---------- | ------------------------------ |
-| user_id            | references | null: false, foreign_key: true |
-| item_id            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :item
-has_one :adds
+belongs_to :user
+has_one :address
 
 
-##  addsテーブル
-| Column             | Type    | Option                         |
-| ------------------ | --------| ------------------------------ |
-| post_code          | string  | null: false                    |
-| place_id           | string  | null: false                    |
-| city               | string  | null: false                    |
-| house_number_id    | string  | null: false                    |
-| house_name         | string  |                                |
-| phone_number       | integer | null: false                    |  
+##  addresssテーブル
+| Column             | Type       | Option                         |
+| ------------------ | ---------- | ------------------------------ |
+| post_code          | string     | null: false                    |
+| place_id           | string     | null: false                    |
+| city               | string     | null: false                    |
+| house_number       | string     | null: false                    |
+| house_name         | string     |                                |
+| phone_number       | integer    | null: false                    |  
+| purchase           | references | null: false, foreign_key: true | 
 
 ### Association
-belongs_to :purchaser
+belongs_to :purchase
