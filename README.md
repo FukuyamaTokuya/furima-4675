@@ -50,15 +50,15 @@ belongs_to :user
 has_one :address
 
 
-##  addresssテーブル
+##  addressesテーブル
 | Column             | Type       | Option                         |
 | ------------------ | ---------- | ------------------------------ |
 | post_code          | string     | null: false                    |
-| place_id           | string     | null: false                    |
+| place_id           | integer    | null: false                    |
 | city               | string     | null: false                    |
 | house_number       | string     | null: false                    |
 | house_name         | string     |                                |
-| phone_number       | integer    | null: false                    |  
+| phone_number       | string     | null: false                    |  
 | purchase           | references | null: false, foreign_key: true | 
 
 ### Association
