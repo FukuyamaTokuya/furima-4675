@@ -8,8 +8,8 @@ class User < ApplicationRecord
   VALID_KANJI_GANA_KANA= /\A[ぁ-んァ-ヶ一-龥々ー]+\z/
   VALID_KANA=/\A[ァ-ヶ]+\z/
   validates :password, format: {with: VALID_PASSWORD_REGEX}
-  validates :last_name_kanji, presence: true, format:{with: VALID_KANJI_GANA_KANA}
-  validates :first_name_kanji, presence: true, format:{with: VALID_KANJI_GANA_KANA}
+  validates :last_name, presence: true, format:{with: VALID_KANJI_GANA_KANA}
+  validates :first_name, presence: true, format:{with: VALID_KANJI_GANA_KANA}
   validates :last_name_kana, presence: true, format:{with: VALID_KANA}
   validates :first_name_kana, presence: true, format:{with: VALID_KANA}
   validates :birthday, presence: true
