@@ -68,3 +68,11 @@ end
 gem 'devise'
 
 gem 'pry-rails'
+
+gem 'mini_magick'
+
+gem 'image_processing', '~> 1.2'
+
+gem 'net-http'
+
+gem 'active_hash'
