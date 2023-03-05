@@ -1,16 +1,14 @@
 class Item < ApplicationRecord
   validates :item_name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
-  validates :price, presence: true
+  # validates :price, presence: true
   validates :image, presence: true
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }, presence: true
   validates :condition_id, numericality: { other_than: 1, message: "can't be blank" }, presence: true
   validates :shipping_fee_id, numericality: { other_than: 1, message: "can't be blank" }, presence: true
   validates :place_id, numericality: { other_than: 1, message: "can't be blank" }, presence: true
   validates :number_of_day_id, numericality: { other_than: 1, message: "can't be blank" }, presence: true
-  VALID_PRICE = /\A\d+\z/
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
-                    format: { with: VALID_PRICE }
+  validates :price, presence:true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, only_integer: true }
   has_one_attached :image
   belongs_to :user
   extend ActiveHash::Associations::ActiveRecordExtensions
