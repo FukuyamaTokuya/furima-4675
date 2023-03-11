@@ -76,3 +76,5 @@ gem 'image_processing', '~> 1.2'
 gem 'net-http'
 
 gem 'active_hash'
+
+gem 'payjp'
