@@ -8,8 +8,8 @@ class PurchaseAddress
     validates :place_id, numericality: { other_than: 1, message: "can't be blank" }, presence: true
     validates :city, presence: true
     validates :house_number, presence: true
-
     validates :phone_number, presence: true,format: {with: /\A\d{10,11}\z/, message: "is invalid."}
+    validates :token
   end
 
   def save
